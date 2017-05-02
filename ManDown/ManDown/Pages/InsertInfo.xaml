@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ManDown.Pages.InsertInfo">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="20, 40, 20, 20"
+                    Android="20, 20, 20, 20"
+                    WinPhone="20, 20, 20, 20" />
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical"
+                     Spacing="15">
+
+            <!-- Patient info-->
+            <Label Text="Patient Information:" FontSize="Large" TextColor="White"/>
+            <Entry x:Name="patientFirst" Placeholder="First Name"/>
+            <Entry x:Name="patientLast" Placeholder="Last Name"/>
+            <Entry x:Name="patientPhone"  Placeholder="Phone Number"/>
+            
+            <!-- Contact info-->
+            <Label Text="Emergency Contact:" FontSize="Large" TextColor="White"/>
+            <Entry x:Name="contactFirst"  Placeholder="First Name"/>
+            <Entry x:Name="contactLast"  Placeholder="Last Name"/>
+            <Entry x:Name="contactPhone"  Placeholder="Phone Number"/>
+
+            <Button x:Name="submitBtn" Text="Submit" Clicked="OnSubmit" TextColor="White" BackgroundColor="#77D065" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -13,10 +13,15 @@
                      HorizontalOptions="FillAndExpand"
                      Orientation="Vertical"
                      Spacing="15">
-            <Label Text="Enter a Phoneword:" />
-            <Entry x:Name="phoneNumberText" Text="1-855-XAMARIN" />
-            <Button x:Name="translateButton" Text="Translate" Clicked="OnTranslate" />
-            <Button x:Name="callButton" Text="Call" IsEnabled="false" Clicked="OnCall" />
+            <Label Text="Patent:" FontSize="Medium"/>
+            <Label Text="Binding PatientInfo" FontSize="Default"/>
+
+            <Label Text="Emergency Contact:" FontSize="Medium"/>
+            <Label Text="Binding ContactInfo" FontSize="Default"/>
+            
+            
+            <Button x:Name="connectButton" Text="Connect to ManDown Device" IsEnabled="true" Clicked="OnConnect" TextColor="White" BackgroundColor="Blue"/>
+            <Button x:Name="alertButton" Text="OH SHIT SON" IsEnabled="true" Clicked="OnAlert" TextColor="White" BackgroundColor="Red" />
             <Button x:Name="historyButton" Text="View History" IsEnabled="false" Clicked="OnCallHistory" />
         </StackLayout>
     </ContentPage.Content>

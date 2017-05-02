@@ -15,9 +15,24 @@ namespace ManDown
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HistoryPage : ContentPage
     {
+        public ObservableCollection<Item> Items { get; }
+
         public HistoryPage()
         {
             InitializeComponent();
+
+            Items = new ObservableCollection<Item>(new[]
+            {
+                new Item { Text = "Baboon", Detail = "Africa & Asia" },
+                new Item { Text = "Capuchin Monkey", Detail = "Central & South America" },
+                new Item { Text = "Blue Monkey", Detail = "Central & East Africa" },
+                new Item { Text = "Squirrel Monkey", Detail = "Central & South America" },
+                new Item { Text = "Golden Lion Tamarin", Detail= "Brazil" },
+                new Item { Text = "Howler Monkey", Detail = "South America" },
+                new Item { Text = "Japanese Macaque", Detail = "Japan" },
+            });
+
+            historyListView.ItemsSource = Items;
             BindingContext = new HistoryPageViewModel();
         }
 
@@ -36,7 +51,13 @@ namespace ManDown
         }
     }
 
+    public class Item
+    {
+        public string Text { get; set; }
+        public string Detail { get; set; }
 
+        public override string ToString() => Text;
+    }
 
     class HistoryPageViewModel : INotifyPropertyChanged
     {
@@ -61,7 +82,10 @@ namespace ManDown
                          group item by item.Text[0].ToString() into itemGroup
                          select new Grouping<string, Item>(itemGroup.Key, itemGroup);
 
+            App.PhoneNumbers.Add(Items[0].Text);
+
             ItemsGrouped = new ObservableCollection<Grouping<string, Item>>(sorted);
+
 
             RefreshDataCommand = new Command(
                 async () => await RefreshData());
@@ -94,14 +118,6 @@ namespace ManDown
         public event PropertyChangedEventHandler PropertyChanged;
         void OnPropertyChanged([CallerMemberName]string propertyName = "") =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-        public class Item
-        {
-            public string Text { get; set; }
-            public string Detail { get; set; }
-
-            public override string ToString() => Text;
-        }
 
         public class Grouping<K, T> : ObservableCollection<T>
         {

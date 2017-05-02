@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <None Include="app.config" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,7 +130,7 @@
       <HintPath>..\..\packages\Xamarin.Forms.2.3.5.235-pre2\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Pages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.Pages.2.3.0.34-pre1\lib\Xamarin.iOS10\Xamarin.Forms.Pages.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.Forms.Pages.2.3.0.38-pre2\lib\Xamarin.iOS10\Xamarin.Forms.Pages.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.5.235-pre2\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
