@@ -13,12 +13,16 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Bluetooth\LE\Enums.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\ContactsDb.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\ISQLite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IDialer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ManDownService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Grouping.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\IFileHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Person.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\DeviceListPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

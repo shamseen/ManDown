@@ -10,11 +10,12 @@ namespace ManDown
 {
     public partial class MainPage : ContentPage
     {
-        string translatedNumber;
+        //string translatedNumber;
 
         public MainPage()
         {
             InitializeComponent();
+
         }
 
         async void Login()
@@ -38,7 +39,7 @@ namespace ManDown
             string msg = String.Format("MAN DOWN: {1} {2} fell! Location: {0}", mapURL, App.Patient.FirstName, App.Patient.LastName);
             var smsMessenger = CrossMessaging.Current.SmsMessenger;
             if (smsMessenger.CanSendSmsInBackground)
-                smsMessenger.SendSmsInBackground(App.Contact.PhoneNumber, msg);
+                smsMessenger.SendSmsInBackground(App.Emergency.PhoneNumber, msg);
 
         }
 
@@ -49,7 +50,7 @@ namespace ManDown
         /// <param name="e"></param>
         async void OnConnect(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new DeviceListPage(App.BluetoothAdapter) { Title = "Connect Bluetooth" });
+            await Navigation.PushAsync(new DeviceListPage() { Title = "Connect Bluetooth" });
         }
 
         ///// <summary>
@@ -72,28 +73,28 @@ namespace ManDown
         //    }
         //}
 
-        /// <summary>
-        /// When "Call" btn is clicked, will render pop-up to confirm calling this #.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        async void OnCall(object sender, EventArgs e)
-        {
-            if (await this.DisplayAlert(
-                    "Dial a Number",
-                    "Would you like to call " + translatedNumber + "?",
-                    "Yes",
-                    "No"))
-            {
-                var dialer = DependencyService.Get<IDialer>();
-                if (dialer != null)
-                {
-                    App.PhoneNumbers.Add(translatedNumber);
-                    historyButton.IsEnabled = true;
-                    dialer.Dial(translatedNumber);
-                }
-            }
-        }
+        ///// <summary>
+        ///// When "Call" btn is clicked, will render pop-up to confirm calling this #.
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //async void OnCall(object sender, EventArgs e)
+        //{
+        //    if (await this.DisplayAlert(
+        //            "Dial a Number",
+        //            "Would you like to call " + translatedNumber + "?",
+        //            "Yes",
+        //            "No"))
+        //    {
+        //        var dialer = DependencyService.Get<IDialer>();
+        //        if (dialer != null)
+        //        {
+        //            App.PhoneNumbers.Add(translatedNumber);
+        //            //historyButton.IsEnabled = true;
+        //            dialer.Dial(translatedNumber);
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// When "History" btn is clicked, will navigate to History page.

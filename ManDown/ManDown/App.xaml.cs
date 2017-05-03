@@ -4,6 +4,8 @@ using Xamarin.Forms.Xaml;
 using BluetoothLE.Core;
 using System;
 using ManDown.Pages;
+using ManDown.Database;
+using ManDown.Models;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace ManDown
@@ -16,7 +18,21 @@ namespace ManDown
 
         public static Person Patient { get; set; }
 
-        public static Person Contact { get; set; }
+        public static Person Emergency { get; set; }
+
+        static ContactsDb database;
+
+        public static ContactsDb Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new ContactsDb(DependencyService.Get<IFileHelper>().GetLocalFilePath("ManDownSQLite.db3"));
+                }
+                return database;
+            }
+        }
 
         static App()
         {
@@ -30,10 +46,14 @@ namespace ManDown
         {
             InitializeComponent();
             PhoneNumbers = new List<string>();
-            if (App.Patient == null || App.Contact == null)
+
+            //style
+            defineStyles();
+
+            if (App.Patient == null || App.Emergency == null)
             {
                 App.Patient = new Person();
-                App.Contact = new Person();
+                App.Emergency = new Person();
                 MainPage = new NavigationPage(new InsertInfo());
             }
 
@@ -42,6 +62,20 @@ namespace ManDown
                 MainPage = new NavigationPage(new MainPage());
             }
         }
+
+        void defineStyles()
+        {
+            Current.Resources = new ResourceDictionary();
+
+            var pageStyle = new Style(typeof(TemplatedPage))
+            {
+                Setters = { new Setter() { Property = TemplatedPage.BackgroundColorProperty,
+                Value = Color.FromHex("#707070") } }
+            };
+
+            Current.Resources.Add(pageStyle);   
+        }
+
 
         protected override void OnStart()
         {
@@ -56,22 +90,6 @@ namespace ManDown
         protected override void OnResume()
         {
             // Handle when your app resumes
-        }
-    }
-
-    public class Person
-    {
-        public string FirstName;
-        public string LastName;
-        public string PhoneNumber;
-
-        public Person() { }
-
-        public Person(string first, string last, string phone)
-        {
-            FirstName = first;
-            LastName = last;
-            PhoneNumber = phone;
         }
     }
 }

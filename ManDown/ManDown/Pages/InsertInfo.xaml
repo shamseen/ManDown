@@ -10,24 +10,67 @@
                     WinPhone="20, 20, 20, 20" />
     </ContentPage.Padding>
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand"
+        <StackLayout
+                    VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical"
+                    Spacing="40">
+
+            <Frame Padding="0,0,0,0"  HorizontalOptions="FillAndExpand" OutlineColor="Black" HasShadow="True" BackgroundColor="#e0e0e0">
+                <StackLayout Spacing="15">
+                    <Frame HasShadow="False" BackgroundColor="#FA6900">
+                        <Label Text="Patient Information:" FontSize="Large" TextColor="White"/>
+                    </Frame>
+                    <Entry x:Name="patientFirst" Placeholder="First Name"/>
+                    <Entry x:Name="patientLast" Placeholder="Last Name"/>
+                    <Entry x:Name="patientPhone"  Placeholder="Phone Number"/>
+                </StackLayout>
+            </Frame>
+
+            <!--<Frame Padding="0,0,0,0"  HorizontalOptions="FillAndExpand" OutlineColor="Black" HasShadow="True" BackgroundColor="AntiqueWhite">
+                <StackLayout Spacing="15">
+                    <Frame HasShadow="False" BackgroundColor="#65A8A6">
+                        <Label Text="Emergency Contact:" FontSize="Large" TextColor="White"/>
+                    </Frame>
+                    <Entry x:Name="contactFirst"  Placeholder="First Name"/>
+                    <Entry x:Name="contactLast"  Placeholder="Last Name"/>
+                    <Entry x:Name="contactPhone"  Placeholder="Phone Number"/>
+                </StackLayout>
+            </Frame>-->
+        </StackLayout>
+
+        <!--<Frame Grid.Row="0" HasShadow="False" BackgroundColor="#65A8A6">
+                <Label  Text="Patient" FontSize="Medium"/>
+            </Frame>
+
+            <Frame Grid.Row="1" HasShadow="True" BackgroundColor="#F7EBD6">
+                <Label Text="Binding PatientInfo" FontSize="Default"/>
+            </Frame>-->
+
+            <!--<Frame Grid.Row="0" HasShadow="True"></Frame>-->
+            <!--<Frame Grid.Row="0" HasShadow="True"></Frame>-->
+            <!--<Frame Grid.Row="0" HasShadow="True"></Frame>-->
+            <!--Patient Info-->
+            <!--<Label Grid.Row="0" BackgroundColor="Transparent" >-->
+        
+        <!--<StackLayout VerticalOptions="FillAndExpand"
                      HorizontalOptions="FillAndExpand"
                      Orientation="Vertical"
                      Spacing="15">
 
-            <!-- Patient info-->
+            --><!-- Patient info--><!--
             <Label Text="Patient Information:" FontSize="Large" TextColor="White"/>
             <Entry x:Name="patientFirst" Placeholder="First Name"/>
             <Entry x:Name="patientLast" Placeholder="Last Name"/>
             <Entry x:Name="patientPhone"  Placeholder="Phone Number"/>
             
-            <!-- Contact info-->
+            --><!-- Contact info--><!--
             <Label Text="Emergency Contact:" FontSize="Large" TextColor="White"/>
             <Entry x:Name="contactFirst"  Placeholder="First Name"/>
             <Entry x:Name="contactLast"  Placeholder="Last Name"/>
             <Entry x:Name="contactPhone"  Placeholder="Phone Number"/>
 
             <Button x:Name="submitBtn" Text="Submit" Clicked="OnSubmit" TextColor="White" BackgroundColor="#77D065" />
-        </StackLayout>
+        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>

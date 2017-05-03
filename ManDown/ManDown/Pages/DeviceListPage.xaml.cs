@@ -13,9 +13,9 @@ namespace ManDown.Pages
         public ObservableCollection<IDevice> DiscoveredDevices { get; private set; }
         private IAdapter _adapter;
 
-        public DeviceListPage(IAdapter adapter)
+        public DeviceListPage()
         {
-            _adapter = adapter;
+            _adapter = App.BluetoothAdapter;
             DiscoveredDevices = new ObservableCollection<IDevice>();
 
             RefreshCommand = new Command(() => Scan());

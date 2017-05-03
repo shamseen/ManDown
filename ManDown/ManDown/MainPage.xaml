@@ -9,7 +9,37 @@
                     WinPhone="20, 20, 20, 20" />
     </ContentPage.Padding>
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand"
+        <Grid  RowSpacing="1">
+            <Frame Grid.Row="0" HasShadow="True">
+                <StackLayout VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical">
+                    <Frame HasShadow="False" BackgroundColor="#FA6900">
+                        <Label Text="Patient Information:" FontSize="Large" TextColor="White"/>
+                    </Frame>
+
+                    <Frame HasShadow="False" BackgroundColor="#F7EBD6">
+                        <Label Text="Binding PatientInfo" FontSize="Default"/>
+                    </Frame>
+                </StackLayout>
+            </Frame>
+
+            <!--<Frame Grid.Row="0" HasShadow="False" BackgroundColor="#65A8A6">
+                <Label  Text="Patient" FontSize="Medium"/>
+            </Frame>
+
+            <Frame Grid.Row="1" HasShadow="True" BackgroundColor="#F7EBD6">
+                <Label Text="Binding PatientInfo" FontSize="Default"/>
+            </Frame>-->
+
+            <!--<Frame Grid.Row="0" HasShadow="True"></Frame>-->
+            <!--<Frame Grid.Row="0" HasShadow="True"></Frame>-->
+            <!--<Frame Grid.Row="0" HasShadow="True"></Frame>-->
+            <!--Patient Info-->
+            <!--<Label Grid.Row="0" BackgroundColor="Transparent" >-->
+
+        </Grid>
+        <!--<StackLayout VerticalOptions="FillAndExpand"
                      HorizontalOptions="FillAndExpand"
                      Orientation="Vertical"
                      Spacing="15">
@@ -23,6 +53,6 @@
             <Button x:Name="connectButton" Text="Connect to ManDown Device" IsEnabled="true" Clicked="OnConnect" TextColor="White" BackgroundColor="Blue"/>
             <Button x:Name="alertButton" Text="OH SHIT SON" IsEnabled="true" Clicked="OnAlert" TextColor="White" BackgroundColor="Red" />
             <Button x:Name="historyButton" Text="View History" IsEnabled="false" Clicked="OnCallHistory" />
-        </StackLayout>
+        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>
